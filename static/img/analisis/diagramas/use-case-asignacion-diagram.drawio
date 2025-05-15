@@ -1,0 +1,66 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.2 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.2">
+  <diagram name="Page-1" id="ZSDIBuogv2k2SB_9FHz1">
+    <mxGraphModel dx="817" dy="873" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-10" value="Sistema SIAD" style="swimlane;whiteSpace=wrap;html=1;strokeColor=#d6b656;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="40" y="440" width="710" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-1" value="Iniciar Sesión" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="tQZpmppg96AM0XIxB4Jj-10">
+          <mxGeometry x="20" y="70" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-7" value="Visualizar Declaraciones Pendientes" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="tQZpmppg96AM0XIxB4Jj-10">
+          <mxGeometry x="190" y="70" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-8" value="Asignar&amp;nbsp;&lt;div&gt;Manualmente Declaracion&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="tQZpmppg96AM0XIxB4Jj-10">
+          <mxGeometry x="365" y="70" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-9" value="Actualizar Disponibilidad" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="tQZpmppg96AM0XIxB4Jj-10">
+          <mxGeometry x="550" y="70" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tQZpmppg96AM0XIxB4Jj-2" target="tQZpmppg96AM0XIxB4Jj-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-2" value="Administrador Sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="105" y="280" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tQZpmppg96AM0XIxB4Jj-5" target="tQZpmppg96AM0XIxB4Jj-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="tQZpmppg96AM0XIxB4Jj-5" target="tQZpmppg96AM0XIxB4Jj-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="465" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-5" value="Supervisor Aduanero" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="275" y="280" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tQZpmppg96AM0XIxB4Jj-6" target="tQZpmppg96AM0XIxB4Jj-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-6" value="Especialista Aduanero&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="635" y="280" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.933;entryY=0.3;entryDx=0;entryDy=0;entryPerimeter=0;curved=1;" edge="1" parent="1" source="tQZpmppg96AM0XIxB4Jj-5" target="tQZpmppg96AM0XIxB4Jj-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="310" />
+              <mxPoint x="220" y="534" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tQZpmppg96AM0XIxB4Jj-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.933;entryY=0.188;entryDx=0;entryDy=0;entryPerimeter=0;curved=1;" edge="1" parent="1" source="tQZpmppg96AM0XIxB4Jj-6" target="tQZpmppg96AM0XIxB4Jj-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="470" />
+              <mxPoint x="342" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

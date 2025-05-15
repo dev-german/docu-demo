@@ -1,0 +1,42 @@
+.infoTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.infoTable thead th {
+  padding: 8px;
+  text-align: left;
+}
+
+.infoTable thead th:first-child {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.infoTable thead th:nth-child(2) {
+  width: auto;
+}
+
+.infoTable td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.infoTable td:first-child {
+  white-space: nowrap;
+  width: 1%;
+}
+
+.featureLabel {
+  font-weight: bold;
+}
+
+.infoTable code {
+  font-size: var(--ifm-code-font-size);
+  background-color: var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  word-break: break-all;
+  white-space: normal;
+}
