@@ -12,7 +12,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: "Instalación rápida y liviana",
-    imagePath: "/img/docu_easy_install.jpg",
+    imagePath:require('@site/static/img/docu_easy_install.jpg').default,
     description: (
       <>
         Este sitio se genera con Docusaurus en segundos, usando Markdown y Git.
@@ -21,7 +21,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: "Documentación siempre actualizada",
-    imagePath: "/img/code_versionado.jpg",
+    imagePath: require('@site/static/img/code_versionado.jpg').default,
     description: (
       <>
         Los cambios se versionan con el código fuente, facilitando el
@@ -31,7 +31,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: "Listo para CI/CD y revisión en PRs",
-    imagePath: "/img/cicd.png",
+    imagePath:require('@site/static/img/cicd.png').default,
     description: (
       <>
         Puedes integrar validaciones, previsualizaciones y despliegue
