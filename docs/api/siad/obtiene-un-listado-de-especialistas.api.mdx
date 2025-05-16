@@ -1,0 +1,71 @@
+---
+id: obtiene-un-listado-de-especialistas
+title: "Obtiene un listado de especialistas."
+description: "Obtiene un listado de especialistas."
+sidebar_label: "Obtiene un listado de especialistas."
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vttu4zYQ/RVinjaA1s5uLw9+09pO62IbG7HTPiRBMRYnNl2KVIZUsIbhr8on5MeKkRSvFHubokX9YvEyh2cOD4fcQcRVgMENjENBmUFrQsQAdwkUyJhTJJbhHTjMCQagTSi8M0tjjUYNCRgHA3goibeQANNDaZg0DO7RBkogZGvKEQY7iNtC4kNk41aQALkyl3VHk/lsejn59HkMCUyH17N0NIUELq7HV+kf04vJcHKZQgLDdJYOJ4t0OJleQgK/pcPqczyHu/0+OdCjlyz+C7n9/k5mS6KBgox/PD+XP00hY1NE4wX3s0ilvdKkqC1eDxLIvIvkogRhUViToQT1N0Eid8crIzMKRxMpD61+v9xQFiGBgn1BHE3Np73eRLfmGxdpRQwJ3HvOMdZdP35fpY966uwWBpFL2idQhhLZ+LkJkfIuzIsQCTifL5mGPi8sRX9ySkfzEzvtSmtxaemwMFW6jbpO+n8tkkCGvMIF4xI3Ps1iifZN2b77eMT+SMZ9AtFEGe6cINjLL4EfThlnzOxZyZrsxD5WBeJHoz3/G+t8wyLR5KJzXpxS9pClxkjvZSokr0heULZGtVVrz1hxJGHdkw0PEWMZTsrXxRg+P2mzak5IdVZ+XixmFUaFdopaF2FUtzLz/ORU5jm2uKh3tOmpW/iEWl3RQ0kh3sJZhZ5TCLiit/F/JRdwQ0pTRGvr09xOtcC4fhvlqqx4KYsqnU3UQ0lqRY74+Um10NpWka6rpsK8eKWLOV1GQ45U6ZT9m0KTU1x7DQNYUeWBii/0O/MgATHYSyUv2cIA1jEWYdDvY2F6xkVGR7EXSoexVxCX/WBQ9x8/HOU6b6yqZmxcZgq06t2MvS6zapP61+lCkVOTBvIMpJgGyko2cVutvyRk4rQUpjd37eG5eLu2b3vSQX7hDE3dlnY9CZLm4+LF1b/8vqjkNu6+LlmN7LI5sr9NyRNB02BWDmt/aVKdW1C9m0/S0dmRBAIjt6NaUZAuZNl57CJ1dkChLtER+6BQaWPNilxmMKhbp8V8mUXGzHhHQWJNXojVK6zerRt6F2qDPUrBDio3GfuqZmTSrLjk6GiDrLS5JyYXKSgUCtGHusTUOYtnxAl1Jo8feue986boYFYVneYmHT+Upqg8N6KAzN5ar0QP9V7Nry/TWuHCh5ija8X9Q992FD1scKQvsV9YNE4OX2XUXePpG6DXL5S1D1EGdrslBrpmu99Ld33fi9O0CVK6v974f9L21BvmEW0py4O8JL4R9Opl8TXkThps6jviRq6aNaEmrhjUsWmWURFbUUeFXVAOR/mnsYj7FxlETpA=
+sidebar_class_name: "get api-method"
+info_path: docs/api/siad/api-del-sistema-de-asignacion-de-especialistas-siad
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Obtiene un listado de especialistas."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/especialistas"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Obtiene un listado de especialistas.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"disponibilidad","in":"query","required":false,"schema":{"type":"string","enum":["DISPONIBLE","OCUPADO","FUERA_OFICINA","CAPACITACION","VACACIONES"]}},{"name":"especialidad","in":"query","required":false,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Listado de especialistas.","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"especialistaId":{"type":"integer","format":"int64","readOnly":true},"usuarioSistemaId":{"type":"string"},"nombreCompleto":{"type":"string"},"especialidad":{"type":"string","nullable":true},"estadoDisponibilidad":{"type":"string","enum":["DISPONIBLE","OCUPADO","FUERA_OFICINA","CAPACITACION","VACACIONES"]},"cargaTrabajoActual":{"type":"integer","format":"int32","nullable":true,"readOnly":true}},"title":"Especialista"}}}}},"500":{"description":"Error interno del servidor.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

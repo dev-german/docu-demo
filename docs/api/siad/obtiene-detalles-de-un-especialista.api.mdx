@@ -1,0 +1,71 @@
+---
+id: obtiene-detalles-de-un-especialista
+title: "Obtiene detalles de un especialista."
+description: "Obtiene detalles de un especialista."
+sidebar_label: "Obtiene detalles de un especialista."
+hide_title: true
+hide_table_of_contents: true
+api: eJytVt1uYjcQfhVrrhLJC9lt1AvuzgJpqdqAAmkvElQN9gRMfewT/0RF6DxVHiEvtppzCIJAtXvRK47tmfE3M5+/YQsJlxF6DzCMFSmD1sSEEeYSKgxYUqLAx1twWBL0gA7MRhokGAc9qDCtQEKg52wCaeilkElCVCsqEXpbSJuKvY1LtKQAEp58KDG1Wz9fQ13P2T1W3kWK7PHl6op/NEUVTJWM53sGlNBaikKTFYdQOiBBeZfIJfbCqrJGIXt115Fdt6dg/GJNKoGEKviKQjLtxR8y/AHwjBz12NlNm3gtIceMwfipiYnK4zAxBeOWUEtwvlwE6vuyspT8WZM9GI1nYkhw2VpcWNpfTDGh9gPDlTQL85+O5HLJbR+MppPx7ejr70OQMO7fT4rBGCTc3A/vir/HN6P+6LYACf1iUvRHs6I/Gt+ChD+LfvM5nMK8lqAwLHEWcIFrX6iU0X63bD99OUF/UsZaQjKJj4/YCXXNR9dX16cEGVoRSOUQvYjeGmW4GsJ58ZRJkGOKBNT+f6RLMiXXvKzOVXmfscZEn9gU5AfEN6RWKDZi5QO2tA7Bhw43PyZMOZ4t5XGM/turNksvNIm2/+LX2WzSxGiinYP28WE1K2XeXp1QPqQDLOKC1h3xCF9Rizt6zhTTI1w20UuKEZf0/fh/kIu4JqGbB8wIj1NtBOS7Ue5yg0tYFMVkJJ4ziSU5Cm+v4iDaIW14624nKw1v6o8xx4tkyL0ja6RFZHciLiWlldfQgyU1HGjwQvfQLHa3x9pRg4RI4eVdQnOw0INVSlXsdbtYmY5hOjpKnZgdpk5FIXejQd19+XyS/JTCi9E+iEkwTpkKrbiYBK+zarrWvS9mgpwY7UJeAktq5Mdg0qa5f0EYKBSZoT/MD4+nTPaWz4dG+34wZtjpOa9bI5C7j5t3mv/216ypv3FPrZ7t+sDd4obv9JBrXESzdNgSTpM4Gj/iYjoqBpcnJeAwPJbEkiJvYWAq4HGko5YI1BkdBR8FCm2sWZJTBqN4dJp7riwGVMa7tvGmrJj7TazOo+t7F1vGvbCaR1EaFTy31CheNlhKdLTGILR5okAuURTIEJJvx1Rsc2YSMRPaTF4+d646VzsVQtWo0G7CDp+zqZq3PKCIIXhrveB6iE9ien9btBWufEwlugO/HyTyUUX3DU70b+pWFo3j19gQdbsj+cPRRIwgofdhRM4lrHxMbLrdLjDSfbB1zdvPmQJzby6BK9hq/cMWtIn8raH3hDbSCaq9NsPF3e4/xaUAeR7tbhPdhkuMNvMKJPxDm9M/LDXPqxWhptAgaY0KpahKB+4nE4Ffy14DfhlyE74BaxQ0Ww==
+sidebar_class_name: "get api-method"
+info_path: docs/api/siad/api-del-sistema-de-asignacion-de-especialistas-siad
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Obtiene detalles de un especialista."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/especialistas/{especialistaId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Obtiene detalles de un especialista.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"especialistaId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Detalles del especialista.","content":{"application/json":{"schema":{"type":"object","properties":{"especialistaId":{"type":"integer","format":"int64","readOnly":true},"usuarioSistemaId":{"type":"string"},"nombreCompleto":{"type":"string"},"especialidad":{"type":"string","nullable":true},"estadoDisponibilidad":{"type":"string","enum":["DISPONIBLE","OCUPADO","FUERA_OFICINA","CAPACITACION","VACACIONES"]},"cargaTrabajoActual":{"type":"integer","format":"int32","nullable":true,"readOnly":true}},"title":"Especialista"}}}},"404":{"description":"El recurso solicitado no fue encontrado.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

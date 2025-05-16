@@ -1,0 +1,71 @@
+---
+id: obtiene-un-listado-de-declaraciones
+title: "Obtiene un listado de declaraciones."
+description: "Permite consultar declaraciones, con filtros opcionales por estado, canal, etc."
+sidebar_label: "Obtiene un listado de declaraciones."
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VttOIzkQ/RWrnkBqcmGZ0SpvPaRhGzFJlITZB0CjorvSMeu2G9uNJoryVXwCP7Yqd2A6wAy7q528pH2pquOqU8deg8fCweAShpQptJhJo8nBdQQ5uczKykujYQATsqX0JDKjXa08WpG3DSJeEAupvDVOmIpnUZETlbGCnMfcRCJDjSoS5LMORFChxZI8WQ6/Bo0lwQCavRCB5Kh3NdkVRGDprpaWchgsUDmKwGVLKhEGa/Criu2ct1IXEAHpuuTzTJLRME1G8+RrPEtPR/FxOh5BBM1gGEMEyejrNPmSzpqFYXqeniaj47RZHH+aJdMvzXc8ujjnr+vNJnoGGg4zleSK/wPtKJ7GozMONh2fjTnSNftxldGOHFse9nr8t1uVcxnSJXLaLQfnNzPak/ZshFWlZIZs1L11bLl+jQmtRUYvPZWuNW9ubinzXDBrKrJeNnha8dK8tV1qTwVZiGBhbIm+mfp4FPKC+VirFQy8rWkTga5LsqbFvDdT9A3LSvFUv//7wWHv8Oig3zvoH/529OEjbCJYULbEKRXSeWvecvCMI0dPB16WxGbt+v2bwkRbir6H+lfSMAIvKzOUShakM4lTYurJ/KcUG46PLz4no3l8DhGcpLP0uGE0eOlDetsn2vAvgg9vkS6x1ljBdbaaqaeEI3svc2P/C+1+QC8uk/NYVv+woi/16oRZIVZiaSwGjMSoO1x559HX7k3K7vo4fnzIZRG6q6m5+GM+nwQfwdtb0HY9DJtRJh8ftMiM9S0sYo9uO+IKPmEuQgGdv4L94L0k57Cg9/1/Ju3wlpvfo1KNErSPWqFfvu9lWgdcQqGIJ6m4q0kUpMk+PoiWtxZTAgOmW3V64kpJfmlyGEBBoZwhNHR3dAkiYK48aX5tFQxg6X3lBt0uVrIjtbeoyXdcrdF3KrJ110nMu/f9V7BnW9aJiZU6kxUqsTexJq+zkO/uRTwXpEW6dbkPrKmOstpKvwrxbwgt2bhmpJfX7eUZ07RhYnvTcyYZM2yFncfNJoi2HydPBD37cx4yJ/WikZltBjnPXKqZdJ7KkP3YyUJjQ5WcROIqyiQqVngn9mZpPNx/lQJ2w/eoKMjxFFouIu56oh1PmNeoiW9pFPmzgjhxpV9eImwry4pZG3x1rvSx0a7hyj1aaZwoZWZNaP+MhwFLiZpu+YEgF2RJe3ICGYI3rlGL5swsFsyE5iT3/U6v09vqB2ZBP7Y3bXJXyyp04ZAcWmuUMoLzIQ7E7GIUNxmujPMl6pbd+MZL0iRqLdRP7smdjK6/69cvePJsyePpm+9WCqXmHg1NsN72yyXkL99hS+M8L6zXN+jowqrNhqebxwazOJcOb1TrufEXrdovqXtUNYcFfr38YPPua+a7xTUPrGST0CIRLAlzsiFwYxpnGVW+ZfVK9tnLszqcJlyvvwEQCo6Q
+sidebar_class_name: "get api-method"
+info_path: docs/api/siad/api-del-sistema-de-asignacion-de-especialistas-siad
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Obtiene un listado de declaraciones."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/declaraciones"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Permite consultar declaraciones, con filtros opcionales por estado, canal, etc.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"estado","in":"query","required":false,"schema":{"type":"string","enum":["PENDIENTE_ASIGNACION","ASIGNADA","EN_REVISION","DILIGENCIADA","OBSERVADA","ANULADA"]}},{"name":"canalRiesgo","in":"query","required":false,"schema":{"type":"string","enum":["NARANJA","ROJO"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Listado de declaraciones.","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"declaracionId":{"type":"integer","format":"int64","readOnly":true},"numeroDeclaracion":{"type":"string","example":"118-2024-10-123456"},"fechaRegistro":{"type":"string","format":"date-time"},"canalRiesgo":{"type":"string","enum":["NARANJA","ROJO"]},"estadoDeclaracion":{"type":"string","enum":["PENDIENTE_ASIGNACION","ASIGNADA","EN_REVISION","DILIGENCIADA","OBSERVADA","ANULADA"]},"tipoDiligenciaRequerida":{"type":"string","enum":["DOCUMENTAL","FISICA"]}},"title":"Declaracion"}}}}},"500":{"description":"Error interno del servidor.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

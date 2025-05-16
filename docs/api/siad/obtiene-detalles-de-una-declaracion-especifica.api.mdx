@@ -1,0 +1,71 @@
+---
+id: obtiene-detalles-de-una-declaracion-especifica
+title: "Obtiene detalles de una declaración específica."
+description: "Obtiene detalles de una declaración específica."
+sidebar_label: "Obtiene detalles de una declaración específica."
+hide_title: true
+hide_table_of_contents: true
+api: eJztVktu40YQvUqjVjZA6+N4BgPtOBLt0JiRDEmeLGxhUGaXqHbIbrq7aYwg8EhZ+Qi+WFAkrUiWEQ+C7JKV2J96el316rMBj6mDwQ2MKMnQYqKMJgeLAAq0mJMny8cb0JgTDED+dS2WEIDSMIAC/QoCsPRQKksSBt6WFIBLVpQjDDbg1wUbK+0pJQsBLI3N0TdbH8+gqhZs7gqjHTm2OO31+EeSS6wqvDL8PyPymGXkhCSRodhyeX7SHQggMdqT9myHRZGpBNmue+/YeHNIx9zdU+IhgMKagqxXzV/vP/En2DN1lBOdrZuXVwHoMidrdny6g+O8VTqFAOgH5kXGW/3+p5PT3unZSb930j/95ezDR6gCWFKywimlynlr3gLY8pDo6cSrnNgsQY3ZVJFL3zQiXeYc8HE4DceXIQQwnVxOYFEFQM6jfJd1a38VjUdxNJ5H38NZfDEOh/FkDAE0ixHjRuPv0+hbPGsORvGX+CIaD+PmcPJ5Fk2/Nd/h+PoLfzEHrwozUplKSScKp/RQklUS/47JaDK8/hqN5+EXCOA8nsVDhqqxfO3e3RdVFZ+c9c4O5RVlwlJSWmeEM5lKFHtDaCOWJQnSLC+L0vyLUuOQOY958ZPRDV4xPmeFiLVYGcvpkAmy1tgOq8B59KV7U777GMPnJ6lSwznVxF/8Op9f1Rg12lvUXqdlvarzUCTG+h0u4ojuO+IWPqMUdTCdv4XjGj0n5zCl9/G/knZ4T0LW6c8M959al593UaZlzYsLR3gVi4eSREqa7POT2EHbUU3EW9O2KLW6+fBWWaovCvav1Q03R/ZRSQb8Xyr/TalUrzEnd16RfmHW9LBS7zcxQa6g5PmPpUqQpZOTXxkJA0ipFkRNHrpyt1V3N3v9qoIAWH0vbbu0GQxg5X3hBt0uFqqjuIpp8h1XavSdgmzZdQpl97F/4IhZq2NxZZVOVIGZOLqyRpZJzbd7Hc4FaRG3kMfAfdxxDVV+Xf//HaElG5bM/Gaxezxj4Tfa3r20jQ1zhnaI4HVzCYL24/xF8pe/zetYKL1s+l0bE44cB3+mnKe8jmfoVKpbV0sSEXtbYaacRyeOZnE4Oj5wAcPwKCRScryFlmWB+0i0h4SyRE3WOIFCbluZE7daktgLHtuqvOA8aKaYWz002jXqe0SrjBO5SqypC0rCy5pLjpru0QqplmRJe3ICmYI3rqk/zZtZQ6yE5iWP/U6v02srEiZ1RWqnuuihVEWd1yNyaK3JMiPYH+JEzK7HYePhwjifo96x+yei3nPvNtqefvhukaHSnKa1ajet4G9gz2cQwGB/RFsEsDLO883N5g4dXdusqnibhwfW4SIA9ibesTJuNiCV428JgyVmjg5IbWs2HE3bofZYQPA22XYT9ZrdjVnJKwjgd1ofDMwVjzgrQkm2JtLcCZOECr9jfdAoOHG21eAi4nj8CVlOC7s=
+sidebar_class_name: "get api-method"
+info_path: docs/api/siad/api-del-sistema-de-asignacion-de-especialistas-siad
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Obtiene detalles de una declaración específica."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/declaraciones/{declaracionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Obtiene detalles de una declaración específica.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"declaracionId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Detalles de la declaración.","content":{"application/json":{"schema":{"type":"object","properties":{"declaracionId":{"type":"integer","format":"int64","readOnly":true},"numeroDeclaracion":{"type":"string","example":"118-2024-10-123456"},"fechaRegistro":{"type":"string","format":"date-time"},"canalRiesgo":{"type":"string","enum":["NARANJA","ROJO"]},"estadoDeclaracion":{"type":"string","enum":["PENDIENTE_ASIGNACION","ASIGNADA","EN_REVISION","DILIGENCIADA","OBSERVADA","ANULADA"]},"tipoDiligenciaRequerida":{"type":"string","enum":["DOCUMENTAL","FISICA"]}},"title":"Declaracion"}}}},"404":{"description":"El recurso solicitado no fue encontrado.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}},"500":{"description":"Error interno del servidor.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

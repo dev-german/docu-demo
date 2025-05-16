@@ -1,0 +1,71 @@
+---
+id: actualiza-el-estado-de-una-diligencia
+title: "Actualiza el estado de una diligencia."
+description: "Actualiza el estado de una diligencia."
+sidebar_label: "Actualiza el estado de una diligencia."
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVs1u2zgQfhViTgmg2umi2INviq20XiS24Z9dYJMgmIgTm1mJVEgqrWv4qfoIfbHFkIojJ942h57WF4sjzqf5+eZnAx6XDnqXMFCFWpLOFTq4TqBCiyV5svxyAxpLgh7I3aWhhASUhh5U6FeQgKWHWlmS0PO2pgRcvqISobcBv65YV2lPS7KQwJ2xJfoo+v0DbLfXUZ2cPzVyzTq50Z6050esqkLl6JXR3XtnNMtegZvbe8o9JFBZU5H1ihy/1TU9msx5lObZv5aa81bpJSRAui45CpNsNBhmo3l2k86GH0dpfzgeQQLxMEghgWx0M5mO+9lsfDMY9/cFZ8MZJDA+nWXTP+Pt2eJ0ljaa/fHF5Dybp4P0pj8enY2nF9m+9FN6fp7+/XHMIOlocc5q11uOjasL9uGQ5bouCrwtKMZ9G35BpTLaxSj8dnLCf5JcblXFgYQexKgISaJA8ZxXgbmvsVBfUZoOJL8qEXvEeQMn2AOUY12sG78SkJQXaDFXRr8NY5uAV9UbEz8Y9xcX2WienkMCZ8PZsB9jf0f5CvuWwncPAew+KtHTO69KOmQ8/W84+GMfXrCRHa8oV1go5zF1aqlRmrdS4CW1OZ+ej61mBZHvH04+HKB4ISzltXVGOFOoXAXGayPuahKkmdr219Kc0+88ltWbmbJv8RmzTazFylgUkgpB1hrbYSo7j752BwO3j9H//k2qZajsyDrxaT6fBIyAdsi0fYRBPOXq+zctcmN9yxZxRPcdcQWnKMU09uwrOA7oJTmHS/o5/gVph/ckJHksitiF2q6GifJTlGkd7OL2lU6G4qEmsSRN9vs30UJrkSZj0bRpjNA0yn3M9Kn5BYhdh6x1u0UyX0ryKyN5+tWBBcFi6D5fct1Nu+dtuxENEnBkH5/Gam0L6MHK+8r1ul2sVEcxJzX5jqs1+k5Ftu46hbL7+P5VBGZkH5U0Vkys0rmqsBBHE2tknYfUdRfpXJAWwwbyGHjQOq4I5dfh+7eElmxas/WX1+3XM2Z8JHX70i4pbDM0U57P8RIkzcPZE9f/+GseksCVNH2e8dkXLKuCfjCj/6sNtobhEzO2vIncxenY5JoZwaSaKeepDDyJ3SeSWpLIWo3JiaPZMB0cv4oww/AmJJbkWISW6Yb7SLSHhLJGTdY40eaME1daMuN3M4wc66qy4voKWJ0r3TfaRVY/olXGiVLl1jBjVM7HYEuJmu7RCqnuyJL25ASyCd644LOLPjNNmWjRk8f3nZPOSdPpMA+drlnqsodaVYHnA3JorSkKIzge4p2YLUZpTGBlnC9Rt/TeXCx7Md0xyNMX360KVJoTGCph0xTSZWtfcJBA78Xe2dTSdQIr4zzf32xu0dHCFtstix9qsszw6wQ4kHGIXPIa4vhZQu8OC0evTNuNATiaNvvssYDksMmNEPWaI41FzSdI4B9av1yVtzxCV4SSbLAjXunHr72bM9AzxKsBtE2eNNI8p8r/8O51qzlNFnOuyGanLo1kFYufuYzwc7TWBOdDoQfZBgrUyzo0coiQ/PsXWHshwg==
+sidebar_class_name: "put api-method"
+info_path: docs/api/siad/api-del-sistema-de-asignacion-de-especialistas-siad
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Actualiza el estado de una diligencia."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/diligencias/{diligenciaId}/estado"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Actualiza el estado de una diligencia.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"diligenciaId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"nuevoEstadoDiligencia":{"type":"string","enum":["PENDIENTE_ASIGNACION","ASIGNADA","EN_PROCESO_DOC","EN_PROCESO_FIS","OBSERVADA","SUBSANADA","COMPLETADA_CONFORME","COMPLETADA_HALLAZGOS","ANULADA"]},"resultado":{"type":"string","nullable":true}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Estado de la diligencia actualizado.","content":{"application/json":{"schema":{"type":"object","properties":{"diligenciaId":{"type":"integer","format":"int64","readOnly":true},"declaracionId":{"type":"integer","format":"int64"},"tipoDiligencia":{"type":"string","enum":["DOCUMENTAL","FISICA"]},"fechaCreacion":{"type":"string","format":"date-time","readOnly":true},"estadoDiligencia":{"type":"string","enum":["PENDIENTE_ASIGNACION","ASIGNADA","EN_PROCESO_DOC","EN_PROCESO_FIS","OBSERVADA","SUBSANADA","COMPLETADA_CONFORME","COMPLETADA_HALLAZGOS","ANULADA"]},"resultadoDiligencia":{"type":"string","nullable":true},"especialistaAsignadoId":{"type":"integer","format":"int64","nullable":true}},"title":"Diligencia"}}}},"404":{"description":"El recurso solicitado no fue encontrado.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

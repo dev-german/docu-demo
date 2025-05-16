@@ -1,0 +1,71 @@
+---
+id: registra-una-nueva-declaracion-de-importacion
+title: "Registra una nueva declaración de importación."
+description: "Permite el ingreso de una nueva declaración al sistema SIAD."
+sidebar_label: "Registra una nueva declaración de importación."
+hide_title: true
+hide_table_of_contents: true
+api: eJztV81u20gMfpUBTw2g+CebFoVvSux2VbS2YTvdQ2IUjIaRJyvNqDOjNIHhh9lnyCPkxRYcKamcuE2B5rbri+eX/Eh+5FBr8Jg5GJzCkNIcLabKaHKwjECSS60qvTIaBjAlWyhPgnKhdGbJGSFJVBqFrugKhby/fnerBebCKeepQDFP4mEHIrD0tSLnj4y8gcE6TJUlCQNvK4ogNdqT9ryFZZmrFFlv99Kx8jW4dEUF8sjflAQDMOeXlHqIoLSmJOsVOd7VVUHWtExpXXHeKp3BJoIUNeYzRS4zT/cjIF0V7JFxPIvHH2KIYDb5MIHlJgKvSjNUucpIpwpnbJNVEn8mZTg5Pvk0Gi/ijxDBu2SeHMew3GyilgtOd+DeRvljzUve8jmrbl1PdFl52GxqPa402tUOOuj1+W87tsN27CxlynmLEgVdK28cFqQ9cQxfKEiyhVO2jivtKSMLEVwYW6Cvl94cBvagnOj8pqbLJvqVQEdA11iUwTX9/tv9g97B4X6/t98/+OPw9RvmwQWlK5zV9u5kwgMOiZ72vSro9+hDzqN8FnVzfzoaD5PReDH6Es+T9+P4OJmMIYJ6MmS5o/GX2ehzMq83hsnH5P1ofJzUm5Oj+Wj2uR7H45OPPHppCu9gXkO6w17vKc/mJlep8pUUSqfGWko9CiOUvrr7J1cSX5BjHCvnsSh/MayPy907poa4EStjubblgqw1tsPhdx595XbydlvG8d2tVFmok3XgxZ+LxTTICNJ2QXucmGFWJ2ZqrG9hEa/osiPO4AilmNXF9Qz2gvSCnMOMnpf/ibTDSxKSPOY5I9w2tUS/el7KrAq4RI4inibia0UiI0327la0pLXoMuKlWVOWGsK83kWYcFCwf62usTmyV0qywP+p8t+kSgDtV0bCAErjQjyDbujKrRYmAiYLWe5u1lDZHAaw8r50g24XS9VR2lvU5Duu0ug7Jdmq6xTK7lX/Ce55QzsxtUqnqsRcvJpaI6s0OLx7Ei8EaZE0Ivdgs2T1aWWVvwn6zwkt2bhipKfL9vaceVpTsX3owZWMmY0Jx2DQHIKoGby7Z+iHvxbBdcz/2fdua3T/CO7sjr4HautVaz1eP3wv2s/CJgKlL+rnsIkcx5cpMm8aQUkidirTTZshSYxcSanCXDmPTrziTnHviedZTIkWRUaOl9AyeXBbEm1JQlmhJmucQCEfkDtxpiWJLY7wXVWUnC1BVudMHxvtao5eoVXGiUKl1oSyk/I0YClQ0yVaIdUFWe6OnECG4I2rq1RtMxcpJmBtyVW/0+v0mrqFaahbGkNIR18rVYbsH5JDa02em9A5i30xPxnHdWCZ7QXq1r2md8Ef9eGPzXvs3fX3GvrbDX7DVk/XvlvmqDSTImTduknQU5CPvzFWnMCDU1ivz9HRic03G15mjnHaLCPgKOA5M+qUu5cVoSQbMupvuuHKWRuwv2D1fDyvGMaTB2ET3d+I05RK/9Ozy1aNmU7mC0625sOlMJLvWPzGbSl+gwFABCY4NORwWFtDjjqrQmWFWib//gX6IaUG
+sidebar_class_name: "post api-method"
+info_path: docs/api/siad/api-del-sistema-de-asignacion-de-especialistas-siad
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Registra una nueva declaración de importación."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/declaraciones"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Permite el ingreso de una nueva declaración al sistema SIAD.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"numeroDeclaracion":{"type":"string"},"canalRiesgo":{"type":"string","enum":["NARANJA","ROJO"]},"tipoDiligenciaRequerida":{"type":"string","enum":["DOCUMENTAL","FISICA"]}},"required":["numeroDeclaracion","canalRiesgo","tipoDiligenciaRequerida"],"title":"DeclaracionInput"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"201":{"description":"Declaración registrada exitosamente.","content":{"application/json":{"schema":{"type":"object","properties":{"declaracionId":{"type":"integer","format":"int64","readOnly":true},"numeroDeclaracion":{"type":"string","example":"118-2024-10-123456"},"fechaRegistro":{"type":"string","format":"date-time"},"canalRiesgo":{"type":"string","enum":["NARANJA","ROJO"]},"estadoDeclaracion":{"type":"string","enum":["PENDIENTE_ASIGNACION","ASIGNADA","EN_REVISION","DILIGENCIADA","OBSERVADA","ANULADA"]},"tipoDiligenciaRequerida":{"type":"string","enum":["DOCUMENTAL","FISICA"]}},"title":"Declaracion"}}}},"400":{"description":"Solicitud incorrecta o inválida.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}},"500":{"description":"Error interno del servidor.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      
