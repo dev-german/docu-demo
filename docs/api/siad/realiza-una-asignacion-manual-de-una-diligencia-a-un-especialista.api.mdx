@@ -1,0 +1,71 @@
+---
+id: realiza-una-asignacion-manual-de-una-diligencia-a-un-especialista
+title: "Realiza una asignación manual de una diligencia a un especialista."
+description: "Realiza una asignación manual de una diligencia a un especialista."
+sidebar_label: "Realiza una asignación manual de una diligencia a un especialista."
+hide_title: true
+hide_table_of_contents: true
+api: eJztV81SIzcQfhVVn6BqsE1qk4NvsxgqTi3g8s/mYHxoRo0topEGSePF6/LD5Jgzj8CLpVoz4DEmLAcOqUp8mpFa37S6v6+7vYaAcw/dKaRezQ1myhryMEvA0V1JPny2cgXddXxVjiR0gyspgcyaQCbwFhaFVhkGZU371lvDaz5bUI78FFYFQRfs9S1lARIonC3IBUWed6XSak4mU9iXDWtlAs3JQQI31uUYqqVfPsEmAfIFZQq18uH9h3xZkFsqb93OER+cMnM2CKqwvWdntk/7xgmQKXMOWe/yZHJ+ejFOv0ACZ/1R/ySF2WaTNII13b3hnvcvPHvDjxnvBc2ObFN1jqZEPaxSBZtN9XFfWOOr+P7UOY5hJp85VXCKGucfH4zII4JwhFp9R4kis0Y8/nWvgm3Bh6UZnz1+X8b4FigvjV5VfNsk/x6m3FC2wG0KXiPIM6rEQEdB5fREsbfPPRHrPL2YRFKlk/HleTquiJVAboNa2iHhmyim1BqvmSl16MgHlO/8dHoy7n9NIYHB8PRrnx/Si8mXtFcze5+CNes+dTr7RBtZrTIVSimUyaxzlAUUViizfPxTK4kfyDAOsg+YF+/MR/LC1TPOqliJhXUoJGlBzlnXiowIGEr/Kn12MU4eH6SaWyFJVCEXv47Hg4gR0V5zbRehV71V0sysCw1fxAHdtsQVfEYpasVfwWFEz8l7nNOP8c/JeLwlISmg1uzh7lULDIsfowzL6JfQKNJBX9yVJOZkyD0+iAZagy2nvDSs61JNmJ9fI0w0FBxfZyrfPItRMuD/VPlvUmWzh1n1KlEaFLjfyiTFnW2/EGwqms2AyZRTWFgJXSisjxyJ94E2NuagdgXJXZrckhwPSmsonYYuLEIofLfdxkK1lAkODYWWLw2GVkGubHuFsr083ovIqCa0GDhlMlWgFgcDZ2WZxVu0J+lYkBH9GvIQNjP+fFY6FVbx+9eEjlxasr/TWXN7xAqoSN40ek4S+8yXiWbQrY0gqR/Onrj/2+/jmBRW1nA7B57eY15o2p/bOvu9tvOyk24Z8s+jVnOi2iSgzI2tBFs3nUE/knCkfKA88qo5ykgSpw0vvDgY9dPe4V4GGKZAh2JOnpfQMT1xF4l2kFCWaMhZL5rE8uLKSFZIptHVlOGzKi9YjxGrdWVOrPGVCpbolPUiV5mzsbBl/Bp9ydHQLToh1Q05MoG8QHYhWF/VwerOzFwmYnWT5XGr0+rUlRGzWBkNxtSe3pWqiPWlRx6ds1pbwfEQR2I0uUirBDP3czSNcx8jrp2AP9Mv0H1oFxqV4exGGa1r3U2hqTuWZ6W8WQIL1md3Cuv1NXqaOL3Z8PJdSY71MEuAw1oNPFOekhaEklyUyh+04mJb9Y2jMbvB5rpkd/Z6yCZ5OpFmGRXhTdtZo4QMLkdjVlH9Xym3ks84/MaDLH6DLkACNoYjijOurUGjmZexGEOFyb+/Ad5Gu4o=
+sidebar_class_name: "post api-method"
+info_path: docs/api/siad/api-del-sistema-de-asignacion-de-especialistas-siad
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Realiza una asignación manual de una diligencia a un especialista."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/asignaciones/manual"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Realiza una asignación manual de una diligencia a un especialista.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"diligenciaId":{"type":"integer","format":"int64"},"especialistaId":{"type":"integer","format":"int64"},"supervisorId":{"type":"string"},"tipoDiligenciaDiligencia":{"type":"string","enum":["DOCUMENTAL","FISICA"]}},"required":["diligenciaId","especialistaId","supervisorId","tipoDiligenciaDiligencia"],"title":"AsignacionManualRequest"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"201":{"description":"Asignación manual realizada con éxito.","content":{"application/json":{"schema":{"type":"object","properties":{"asignacionId":{"type":"integer","format":"int64","readOnly":true},"diligenciaId":{"type":"integer","format":"int64"},"especialistaId":{"type":"integer","format":"int64"},"supervisorId":{"type":"string"},"fechaAsignacion":{"type":"string","format":"date-time"},"tipoAsignacion":{"type":"string","enum":["MANUAL","AUTOMATICA"]},"motivoReasignacion":{"type":"string","nullable":true},"estadoAsignacion":{"type":"string","enum":["ACTIVA","PREVIA","ANULADA"]}},"title":"Asignacion"}}}},"400":{"description":"Solicitud incorrecta o inválida.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}},"500":{"description":"Error interno del servidor.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: actualiza-el-estado-de-disponibilidad-de-un-especialista
+title: "Actualiza el estado de disponibilidad de un especialista."
+description: "Actualiza el estado de disponibilidad de un especialista."
+sidebar_label: "Actualiza el estado de disponibilidad de un especialista."
+hide_title: true
+hide_table_of_contents: true
+api: eJztV81u4zYQfhViTgnAtbPbRQ++aR0HddEmRuy0h8QoxuLEZkqRCn+y6zX0MH2GfYS8WDGSkkix0S3Q7an1xRLJ+Tj85hvOaAcR1wFG1zAJJeUajQ4RAywllOixoEiep3dgsSAYAXWWTRVI0BZGUGLcgARP90l7UjCKPpGEkG+oQBjtIG5LttY20po8SLh1vsDYDH3/Hqpq2ZhTiB+c2rLNa7Tc2Ug28hSWpdE5Ru3s8C44y2N7m7nVHeURJJTeleSjpsCzNtGDm4SIynUWh+i1XYMEsqlgPk6n89nF+fTDTxOQcDG+mmWnFyDh7Gpymf12cTYdT88zkDDOZtl4usjG04tzkPBLNq4fJ3NYVlWXkevexksJUUfDO2d5TGj0Z/SnOpTO6pU2WqG6bNiAqmqAeC40R3h3csJ/ikLudckswAj61gKfYBUO4JuR9yr8fyOy7DqqC2u2TRwrCSkk9NrNdYhU9GHaMFQSrCtWnsauKA3FA5Gq5IszCg9gSLDJGFwxye3GVJPfJ+pf1oCEHP0aFx5XeOeaWH+Vtu/e7Xm/R2P1oqBu6rZyeX9IIXNndK5jUkLb3HlPeUThhLYPj38wF99QJ1EXTHZRHqL3+agKI73hpSBfuXpG+QbFVmycR6HICPLe+QFHPUSMKRzksI8xfvyi9NoJRaIJvPhhsZjVGDXaIddepVTzluvHL1bkzseOL+KI7gbiBj6gEm2q3sBxjV5QCLimr+P/TDbgHQlFEY1hD/tHra/Vr6JcptovYVBks6m4TyTWZMk/fhEdtK5eeOiyvVCeBfN+XzATIzzlyQcnQqMd9tE6cZtIkGWteFTuf938V3VTvcZ8LmY1RMOeIqH6tUmRSFZ0awlLqKC4cYq7iVQLoz4EDLvLwnDXr0DVsA8NEgL5h6emJXkDI9jEWIbRcIilHmiWrKU4CMliHJTk0zBoVMOHt3sEzck/aOW8mHltc12iEUcz71TK68gOr7KFICumLeQxcBMTOGF03Nb7rwg9+SzxSa6X3ek5J0Sj+e6i55ixz9B2UPzeLALZPpw9pcKPvy7qGHGiXb70T5NPyIVzr9/plrSKm7fbprQ+9SKzaS2ltjRzoLKg1xYbKSsSvTZRHM2n2enxHnEMw+2jWFPgIfQsMuwj9eIqUCW05F0QKJQ2ek021xjEjWX5UG7QY66dpcC2uig5q2qswY0dOxsaLT9wYxFEoXPvWAg659falwIt3aEXSt+SJxspCGQXogv1mUNzZlYi66c5ycPbwcngpL3fMK/vt7YTntwnXdbqPqWA3jtjnGA+xBsxvzrPmriULsQCbcfun6RIj+ZnrUT6FIelQW05prXmd236XPc6tgASRnsd/KsMWkrYuBDZdrdbYaArb6qKh+8Tedb1UgLz3DQn1zsG4GcFo1s0gfbcfK4NcHTZ9sPHAuRh99tBtFsOBJrEbyDhd9ruf35U3GBtCBX52pNm0bjZ782CoV5A9upSJZ8ssjynMv7l2mXngppdLTgT2++Uwik28fiRm1382Pjr6uPXCV6P7cCgXaf6focGkn9/AgbLr2Y=
+sidebar_class_name: "put api-method"
+info_path: docs/api/siad/api-del-sistema-de-asignacion-de-especialistas-siad
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Actualiza el estado de disponibilidad de un especialista."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/especialistas/{especialistaId}/disponibilidad"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Actualiza el estado de disponibilidad de un especialista.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"especialistaId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"nuevoEstado":{"type":"string","enum":["DISPONIBLE","OCUPADO","FUERA_OFICINA","CAPACITACION","VACACIONES"]}},"required":["nuevoEstado"],"title":"ActualizarDisponibilidadRequest"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Disponibilidad actualizada.","content":{"application/json":{"schema":{"type":"object","properties":{"especialistaId":{"type":"integer","format":"int64","readOnly":true},"usuarioSistemaId":{"type":"string"},"nombreCompleto":{"type":"string"},"especialidad":{"type":"string","nullable":true},"estadoDisponibilidad":{"type":"string","enum":["DISPONIBLE","OCUPADO","FUERA_OFICINA","CAPACITACION","VACACIONES"]},"cargaTrabajoActual":{"type":"integer","format":"int32","nullable":true,"readOnly":true}},"title":"Especialista"}}}},"400":{"description":"Solicitud incorrecta o inválida.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}},"404":{"description":"El recurso solicitado no fue encontrado.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

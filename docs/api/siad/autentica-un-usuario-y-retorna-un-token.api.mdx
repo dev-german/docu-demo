@@ -1,0 +1,71 @@
+---
+id: autentica-un-usuario-y-retorna-un-token
+title: "Autentica un usuario y retorna un token."
+description: "Autentica un usuario y retorna un token."
+sidebar_label: "Autentica un usuario y retorna un token."
+hide_title: true
+hide_table_of_contents: true
+api: eJytVsFu2zgQ/RViTgmg2MliT7q5SYqmQLtB7KAHx4cJOZGZSiQzpNJ4DX9VPiE/VgylJnJsbLFAfbAlcvg08+bNk9eQsIpQzmHSJnLJatT25dnBogCmh5Zi+uDNCsp1vrVMBsrELRWgvZMTsoUh1FZjst6N76N3shb1khqUq7QKBCX423vSCQoI7ANxshRlt43EDhsaRMbE1lWwKSBgjD88mz2bm2KQ0fwNZnBoUUCyqZZT17FFtn7SpuVVVxZsNh1GDN7FLpe/jo/lx1DUbIOUA+U7YhQ92eQjjuCPMZD8d3K7FRbv8phJmPr8baYCMircSmskbLVdkRf76CrA+eaW6dQ3oabk94awr/czvZfGjriex7+PT3ap++olTc/2XzReHWgmQ05brCkq67RnJp0wHv5JMm1DMWET9hF657nBBCUYTHQkoTssfyS9RLVSS8+oDNWKmD1nemPC1MYBrnWJKuIdjNOXZ2MrrwwpycV49Wk2u8wYGe33vT7r7jrFac9pkIs6oPuRuoEPaFSv5Rs4zOgNxYjVnlF6j/+FXMR7UoYS1rVkuF1qwLT8PcpVm/NSNarJ5YV6aElV5IhfntUAbSCfc1naEs7mPebrtKnWqV7QaqWYkmeXF/O4iGIaSktvoITgYxZCThrG2KbluPaVdVBAJH4kFodbQ8s1lLBMKcRyPMZgR9YlRkdpFFuHaRSI23G0aMaPJzvVTokfrfGsLtk6bQPW6uCSvWl1btP4ejJT5NRFD3kIm4U8Xrds0yo//5aQiWV4oJwvhttTUXcn4GHQawMkZykmh0HZB0HRX3z8pevP32aZcJmaqzf7Pn9Cmfptu33r6pvLDrzAurvOJPreSYdFJFMbEzW575NoK9fboiF1HgPJcNuYMKqD6cXk7HCHRYHJ/lVRlCVkkQ9uI9EWEpoWHbGPCpWxta2yh0R144woWNfIqK13FOWsbYLMS+eKN+7Uu9ip9FGkFFVjNXtRhdVym3Np0NE9sjL2jphcoqhQUkg+5ppjV7OITsTUVfJ4MjoeHffOhTo7V8/s+UNrQ57/M4rI7OvaK+FDHanp9ddJ1ySRbYNucO5/iH+L1VedJHpK41Cjdfl9wNnOu7mYg8wFFNBNxqKApYxNOYf1+hYjXXO92cjyQ0ssel0UIJThrbR/vtgUsCQ0xFnK32klRtd59tFMni7hdStZ7Pj3pvh1YqI1hfSfsYvBZF/+M52Jyvu/II03cobxBxT5uwQowGcW8vDktTXU6Ko2GyF0mPL5CY5JIy0=
+sidebar_class_name: "post api-method"
+info_path: docs/api/siad/api-del-sistema-de-asignacion-de-especialistas-siad
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Autentica un usuario y retorna un token."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/auth/login"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Autentica un usuario y retorna un token.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"username":{"type":"string"},"password":{"type":"string"}},"required":["username","password"],"title":"UsuarioAuthRequest"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Autenticación exitosa.","content":{"application/json":{"schema":{"type":"object","properties":{"token":{"type":"string","description":"Token JWT para autenticación."},"usuarioId":{"type":"string"},"nombreCompleto":{"type":"string"},"rol":{"type":"string"}},"title":"UsuarioAuthResponse"}}}},"401":{"description":"No autorizado (credenciales incorrectas).","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

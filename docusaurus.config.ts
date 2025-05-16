@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -38,6 +39,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          docItemComponent: "@theme/ApiItem",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -86,6 +88,17 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Documentación',
+        },
+        {
+          type: "dropdown",
+          label: "APIs",
+          position: "left",
+          items: [
+            {
+              label: "API SIAD",
+              to: "docs/category/siad-api",
+            },
+          ]
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
@@ -152,6 +165,25 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['java']
     },
+    languageTabs: [
+      {
+        highlight: "java",
+        language: "java",
+        logoClass: "java",
+        variant: "unirest",
+      },
+      {
+        highlight: "bash",
+        language: "curl",
+        logoClass: "curl",
+      },    
+      {
+        highlight: "javascript",
+        language: "javascript",
+        logoClass: "javascript",
+      },
+    ],
+    
   } satisfies Preset.ThemeConfig,
 
   themes:[
@@ -164,13 +196,34 @@ const config: Config = {
         indexBlog: false,
         
       },
-    ]
+    ],
+    "docusaurus-theme-openapi-docs",
   ],
   markdown: {
     mermaid: true
   },
 
-  plugins: [require.resolve('docusaurus-plugin-image-zoom')]
+  plugins: [
+    require.resolve('docusaurus-plugin-image-zoom'),
+    ['docusaurus-plugin-openapi-docs',
+      {
+        id: "apiDocsSIAD", // plugin id
+        docsPluginId: "classic", // configured for preset-classic
+        config: {
+          siad_api: {
+            specPath: "openapi/openapi-siad.yaml",
+            outputDir: "docs/api/siad",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
+            downloadUrl: "/openapi/openapi-siad.yaml"
+          } satisfies OpenApiPlugin.Options,
+        }
+      },
+    ]
+  ],
+  
 };
 
 export default config;

@@ -1,0 +1,71 @@
+---
+id: envia-una-notificacion-uso-interno-por-otros-servicios
+title: "Envía una notificación (uso interno por otros servicios)."
+description: "Envía una notificación (uso interno por otros servicios)."
+sidebar_label: "Envía una notificación (uso interno por otros servicios)."
+hide_title: true
+hide_table_of_contents: true
+api: eJytVsFu4zYQ/RViTgmg2NlFT74pibd10SaB7WwPjrGYiBObqUQy5MjdwNDH7Af0lE/IjxVDaRM5NraH1gfDlIaPb2beG3oLjKsIowVcOjb3psDCOEsRlhkEeqwp8pnTTzDapqUJpGHEoaYMCmeZLMsr9L40BbJxdvgQnZVnsVhThfKLnzzBCNzdAxUMGfjgPAU2FOWtpsjGImMwbqJ78ZGDsStoMmDjXZ/eflAGZOsqpXEz/px/yWeTny/z88nVJWQwHe8sL8bnv+XTtPpydTYbTz/nFzksmwwqshEf6CAHjexiro2cj2VLfTexpsl6NVq8T+xAGm8nLuUtl4LWj5i2HYCmacGjdza2Z388/dhVrwjGc6oKzFxpCsO1VpqUfQV6ebYKC/KMGgeSzE+npz/abGzhQqCCUTll7OblW2lk5//WczYVRcbKH+rkvQsVMoyk5HQioZC9o/qJijWqJ7V2AZWmUlEILqTUIiPX/e4Yy7SisIdx/vKszcpJpYSLduqX+fw6YSS0Q9R2ES7aVVvfwgXucVFH9DBQt3CGWnVdvIXjhF5RjLg6oLL3+L+34lCaGMtSGO6m6pHX/44yrRMvVaLKryfqsSa1Ikvh5Vn10Jo3AY7l0bTTWpJe8x5zbDcvf6OqLb5T2VEdRTFMwTrlXVCOg4sqUtiIc+LxIIme107DCLyLSRspDxjanQk0JLsxKH2T3RRkSG2hDiWMYM3s42g4RG8GxnJASzyItUUeeAr1MBrUw82HvVrMhId2QV0HYwvjsVRH18Hpukj0hzf5XJFVkw7yGJqlHF/UwfBTOv+OMFDIa2G8WPZfz0T7rbz7Qa/tEc6STAqDURcEWffj03fV//rHPLVDPDV9m8Djr1j5kg5NzLfO7w/KQ/Pwdcz1JLM/3YSDsfeu9WsrDRGQaHBmIlOVZJVHs7Jd9zWpcfRUGCxNZIzqaDbJL4732iAwHgOqlWTiLAZRJ+4i0Q4S6hotiZZQaVOaFdnCYFS3VotBihJDpxvZayovdkxYg1t77mxsTbCRmkVVmSK4V1G2XCq09IBBaXNPgSxTVCgU2MWUc2xzFgGLGttMNh8Gp4PTbjBikQajxdTf8WNtfBovFxQxBFeWTkk91Ima3VzmbZfFAhXa/r7/5K2dQr9qj+krD32JxsrcSB7adrZbwK7t0lWajLfMYC0GHS1gu73DSDehbBp5/FhTEDssM5CC4p2IYyE36JpQU0hO+ZOeZMq2F8bJXIhIeFkLob3Lo8m+78gLual+GLvszZDrq9lcTNT9Samclj0B/4IsfY8AMnCpIMmb6dkWSrSrOk1haDHl8w+lZi2B
+sidebar_class_name: "post api-method"
+info_path: docs/api/siad/api-del-sistema-de-asignacion-de-especialistas-siad
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Envía una notificación (uso interno por otros servicios)."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/notificaciones/enviar"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Envía una notificación (uso interno por otros servicios).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"destinatarioId":{"type":"string"},"tipoNotificacion":{"type":"string","enum":["NUEVA_ASIGNACION","REASIGNACION","DECLARACION_OBSERVADA"]},"mensaje":{"type":"string"},"datosAdicionales":{"type":"object"}},"required":["destinatarioId","tipoNotificacion","mensaje"],"title":"NotificacionRequest"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"202":{"description":"Solicitud de notificación aceptada."},"400":{"description":"Solicitud incorrecta o inválida.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

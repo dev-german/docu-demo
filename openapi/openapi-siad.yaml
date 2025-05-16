@@ -1,0 +1,644 @@
+openapi: 3.0.0
+info:
+  title: API del Sistema de Asignación de Especialistas (SIAD)
+  description: |-
+    API para gestionar la asignación de especialistas aduaneros a diligencias 
+    de declaraciones de importación.
+    Consta de varios microservicios para manejar diferentes aspectos del sistema.
+  version: v1.0.0
+  contact:
+    name: Equipo de Desarrollo SIAD - SUNAT
+    # email: equipo.siad@sunat.gob.pe (ejemplo)
+
+servers:
+  - url: https://api.intranet.sunat.peru/siad/v1 # URL base del API Gateway
+    description: Servidor Principal (Producción/UAT en Intranet)
+  # Puedes añadir más servidores, como un entorno de desarrollo local
+  # - url: http://localhost:8080/siad/v1
+  #   description: Servidor de Desarrollo Local
+
+tags:
+  - name: Declaraciones
+    description: Operaciones relacionadas con las declaraciones de importación.
+  - name: Diligencias
+    description: Operaciones sobre las diligencias asociadas a las declaraciones.
+  - name: Asignaciones
+    description: Gestión de la asignación de diligencias a especialistas.
+  - name: Especialistas
+    description: Gestión de la información y disponibilidad de los especialistas.
+  - name: Notificaciones
+    description: Envío y gestión de notificaciones del sistema.
+  - name: Autenticación
+    description: Operaciones de autenticación y gestión de usuarios (conceptual, podría ser un servicio aparte).
+
+components: # ÚNICA sección components a nivel raíz
+  schemas:
+    # --- Esquemas Generales ---
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          description: Fecha y hora del error.
+        status:
+          type: integer
+          description: Código de estado HTTP.
+        error:
+          type: string
+          description: Descripción corta del error (ej. "Bad Request").
+        message:
+          type: string
+          description: Mensaje detallado del error.
+        path:
+          type: string
+          description: Ruta de la API que generó el error.
+
+    UsuarioAuthRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      required:
+        - username
+        - password
+
+    UsuarioAuthResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: Token JWT para autenticación.
+        usuarioId:
+          type: string
+        nombreCompleto:
+          type: string
+        rol:
+          type: string
+
+    # --- Esquemas para Declaraciones ---
+    Declaracion:
+      type: object
+      properties:
+        declaracionId:
+          type: integer
+          format: int64
+          readOnly: true
+        numeroDeclaracion:
+          type: string
+          example: "118-2024-10-123456"
+        fechaRegistro:
+          type: string
+          format: date-time
+        canalRiesgo:
+          type: string
+          enum: [NARANJA, ROJO]
+        estadoDeclaracion:
+          type: string
+          enum: [PENDIENTE_ASIGNACION, ASIGNADA, EN_REVISION, DILIGENCIADA, OBSERVADA, ANULADA]
+        tipoDiligenciaRequerida:
+          type: string
+          enum: [DOCUMENTAL, FISICA]
+    
+    DeclaracionInput:
+      type: object
+      properties:
+        numeroDeclaracion:
+          type: string
+        canalRiesgo:
+          type: string
+          enum: [NARANJA, ROJO]
+        tipoDiligenciaRequerida:
+          type: string
+          enum: [DOCUMENTAL, FISICA]
+      required:
+        - numeroDeclaracion
+        - canalRiesgo
+        - tipoDiligenciaRequerida
+
+    # --- Esquemas para Diligencias ---
+    Diligencia:
+      type: object
+      properties:
+        diligenciaId:
+          type: integer
+          format: int64
+          readOnly: true
+        declaracionId:
+          type: integer
+          format: int64
+        tipoDiligencia:
+          type: string
+          enum: [DOCUMENTAL, FISICA]
+        fechaCreacion:
+          type: string
+          format: date-time
+          readOnly: true
+        estadoDiligencia: 
+          type: string
+          enum: [PENDIENTE_ASIGNACION, ASIGNADA, EN_PROCESO_DOC, EN_PROCESO_FIS, OBSERVADA, SUBSANADA, COMPLETADA_CONFORME, COMPLETADA_HALLAZGOS, ANULADA]
+        resultadoDiligencia:
+          type: string
+          nullable: true
+        especialistaAsignadoId:
+          type: integer
+          format: int64
+          nullable: true
+
+    # --- Esquemas para Especialistas ---
+    Especialista:
+      type: object
+      properties:
+        especialistaId: 
+          type: integer
+          format: int64
+          readOnly: true
+        usuarioSistemaId: 
+          type: string 
+        nombreCompleto:
+          type: string
+        especialidad:
+          type: string
+          nullable: true
+        estadoDisponibilidad:
+          type: string
+          enum: [DISPONIBLE, OCUPADO, FUERA_OFICINA, CAPACITACION, VACACIONES]
+        cargaTrabajoActual:
+          type: integer
+          format: int32
+          nullable: true
+          readOnly: true
+
+    ActualizarDisponibilidadRequest:
+      type: object
+      properties:
+        nuevoEstado:
+          type: string
+          enum: [DISPONIBLE, OCUPADO, FUERA_OFICINA, CAPACITACION, VACACIONES]
+      required:
+        - nuevoEstado
+
+    # --- Esquemas para Asignaciones ---
+    Asignacion:
+      type: object
+      properties:
+        asignacionId:
+          type: integer
+          format: int64
+          readOnly: true
+        diligenciaId:
+          type: integer
+          format: int64
+        especialistaId:
+          type: integer
+          format: int64
+        supervisorId:
+          type: string 
+        fechaAsignacion:
+          type: string
+          format: date-time
+        tipoAsignacion:
+          type: string
+          enum: [MANUAL, AUTOMATICA]
+        motivoReasignacion:
+          type: string
+          nullable: true
+        estadoAsignacion: 
+          type: string
+          enum: [ACTIVA, PREVIA, ANULADA]
+          
+    AsignacionManualRequest:
+      type: object
+      properties:
+        diligenciaId:
+          type: integer
+          format: int64
+        especialistaId:
+          type: integer
+          format: int64
+        supervisorId:
+          type: string
+        tipoDiligenciaDiligencia: 
+            type: string
+            enum: [DOCUMENTAL, FISICA]
+      required:
+        - diligenciaId
+        - especialistaId
+        - supervisorId
+        - tipoDiligenciaDiligencia
+
+    ReasignacionRequest:
+      type: object
+      properties:
+        asignacionActualId: 
+          type: integer
+          format: int64
+        nuevoEspecialistaId:
+          type: integer
+          format: int64
+        supervisorId:
+          type: string
+        motivo:
+          type: string
+      required:
+        - asignacionActualId
+        - nuevoEspecialistaId
+        - supervisorId
+        - motivo
+        
+    # --- Esquemas para Notificaciones ---
+    NotificacionRequest:
+      type: object
+      properties:
+        destinatarioId:
+          type: string 
+        tipoNotificacion:
+          type: string
+          enum: [NUEVA_ASIGNACION, REASIGNACION, DECLARACION_OBSERVADA]
+        mensaje:
+          type: string
+        datosAdicionales:
+          type: object 
+      required:
+        - destinatarioId
+        - tipoNotificacion
+        - mensaje
+
+  securitySchemes:
+    bearerAuth: 
+      type: http
+      scheme: bearer
+      bearerFormat: JWT 
+
+  responses: # Definiciones de Respuestas Comunes ahora bajo el mismo 'components'
+    NotFound:
+      description: El recurso solicitado no fue encontrado.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Solicitud incorrecta o inválida.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InternalServerError:
+      description: Error interno del servidor.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: No autorizado. Se requiere autenticación.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+security: 
+  - bearerAuth: []
+
+paths:
+  # --- MS-Declaraciones Endpoints ---
+  /declaraciones:
+    post:
+      tags:
+        - Declaraciones
+      summary: Registra una nueva declaración de importación.
+      description: Permite el ingreso de una nueva declaración al sistema SIAD.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeclaracionInput'
+      responses:
+        '201':
+          description: Declaración registrada exitosamente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Declaracion'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    get:
+      tags:
+        - Declaraciones
+      summary: Obtiene un listado de declaraciones.
+      description: Permite consultar declaraciones, con filtros opcionales por estado, canal, etc.
+      parameters:
+        - name: estado
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [PENDIENTE_ASIGNACION, ASIGNADA, EN_REVISION, DILIGENCIADA, OBSERVADA, ANULADA]
+        - name: canalRiesgo
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [NARANJA, ROJO]
+        # Añadir parámetros para paginación (page, size)
+      responses:
+        '200':
+          description: Listado de declaraciones.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Declaracion'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /declaraciones/{declaracionId}:
+    get:
+      tags:
+        - Declaraciones
+      summary: Obtiene detalles de una declaración específica.
+      parameters:
+        - name: declaracionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Detalles de la declaración.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Declaracion'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put: 
+      tags:
+        - Declaraciones
+      summary: Actualiza una declaración (ej. su estado).
+      parameters:
+        - name: declaracionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema: 
+              type: object
+              properties:
+                nuevoEstado:
+                  type: string
+                  enum: [PENDIENTE_ASIGNACION, ASIGNADA, EN_REVISION, DILIGENCIADA, OBSERVADA, ANULADA]
+      responses:
+        '200':
+          description: Declaración actualizada.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Declaracion'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  # --- MS-Diligencias ---
+  /diligencias/{diligenciaId}/estado:
+    put:
+      tags:
+        - Diligencias
+      summary: Actualiza el estado de una diligencia.
+      parameters:
+        - name: diligenciaId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nuevoEstadoDiligencia:
+                  type: string
+                  enum: [PENDIENTE_ASIGNACION, ASIGNADA, EN_PROCESO_DOC, EN_PROCESO_FIS, OBSERVADA, SUBSANADA, COMPLETADA_CONFORME, COMPLETADA_HALLAZGOS, ANULADA]
+                resultado:
+                  type: string
+                  nullable: true
+      responses:
+        '200':
+          description: Estado de la diligencia actualizado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Diligencia'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  # --- MS-Asignaciones Endpoints ---
+  /asignaciones/manual:
+    post:
+      tags:
+        - Asignaciones
+      summary: Realiza una asignación manual de una diligencia a un especialista.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AsignacionManualRequest'
+      responses:
+        '201':
+          description: Asignación manual realizada con éxito.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asignacion' 
+        '400':
+          $ref: '#/components/responses/BadRequest' 
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /asignaciones/automatica:
+    post:
+      tags:
+        - Asignaciones
+      summary: Inicia el proceso de asignación automática de diligencias.
+      responses:
+        '202': 
+          description: Proceso de asignación automática iniciado.
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+          
+  /asignaciones/{asignacionId}/reasignar: 
+    post:
+      tags:
+        - Asignaciones
+      summary: Reasigna una diligencia a un nuevo especialista.
+      parameters:
+        - name: asignacionId 
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReasignacionRequest' 
+      responses:
+        '200':
+          description: Reasignación realizada con éxito.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asignacion' 
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  # --- MS-Especialistas Endpoints ---
+  /especialistas:
+    get:
+      tags:
+        - Especialistas
+      summary: Obtiene un listado de especialistas.
+      parameters:
+        - name: disponibilidad
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [DISPONIBLE, OCUPADO, FUERA_OFICINA, CAPACITACION, VACACIONES]
+        - name: especialidad
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Listado de especialistas.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Especialista'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /especialistas/{especialistaId}:
+    get:
+      tags:
+        - Especialistas
+      summary: Obtiene detalles de un especialista.
+      parameters:
+        - name: especialistaId
+          in: path
+          required: true
+          schema:
+            type: integer 
+            format: int64
+      responses:
+        '200':
+          description: Detalles del especialista.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Especialista'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /especialistas/{especialistaId}/disponibilidad:
+    put:
+      tags:
+        - Especialistas
+      summary: Actualiza el estado de disponibilidad de un especialista.
+      parameters:
+        - name: especialistaId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActualizarDisponibilidadRequest'
+      responses:
+        '200':
+          description: Disponibilidad actualizada.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Especialista'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  # --- MS-Notificaciones Endpoints ---
+  /notificaciones/enviar:
+    post:
+      tags:
+        - Notificaciones
+      summary: Envía una notificación (uso interno por otros servicios).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificacionRequest'
+      responses:
+        '202':
+          description: Solicitud de notificación aceptada.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  # --- Endpoints de Autenticación ---
+  /auth/login:
+    post:
+      tags:
+        - Autenticación
+      summary: Autentica un usuario y retorna un token.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsuarioAuthRequest'
+      responses:
+        '200':
+          description: Autenticación exitosa.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsuarioAuthResponse'
+        '401':
+          description: No autorizado (credenciales incorrectas).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+

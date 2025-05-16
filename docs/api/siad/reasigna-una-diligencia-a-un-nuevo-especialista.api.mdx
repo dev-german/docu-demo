@@ -1,0 +1,71 @@
+---
+id: reasigna-una-diligencia-a-un-nuevo-especialista
+title: "Reasigna una diligencia a un nuevo especialista."
+description: "Reasigna una diligencia a un nuevo especialista."
+sidebar_label: "Reasigna una diligencia a un nuevo especialista."
+hide_title: true
+hide_table_of_contents: true
+api: eJztV81uGzcQfhViTjawkZwi7UG3je2gKvIjSHJ6sHUYL8cSXS65JrlKVGEfpsee8wh+sWLItbSylMQokkPR+GItl/PNx5lvZodrCDj3MLiE3Ku5wUJZQx5mGVTosKRAjt+uwWBJMADc7BpKyEAZGECFYQEZOLqrlSMJg+BqysAXCyoRBmsIq4ptlQk0JwcZ3FhXYkhLv7yAppklc/LhpZUrtnmMVlgTyAR+hVWlVYFBWdO/9dbw2p4ze31LRYAMKmcrckGRj7Yb/nkRatRD+SSCGZialvbcV1Qo1MoHfLKlrytyS+Wt2zHxwSkz5w2lDWppD7xqukG9PMT9MK9HPjceZhkEFTS7GNMWbZwiD02TPPrKGp/C9dPJCf+T5AunKo74ju39JyMcoVZ/okRRWCPu//6ogu3Bd0jY0wLOB0D5zuhVUk6TgVRazckU6uk5o++S6BsqFrits/09HVSJgZ4FVRIbBlXZL9uRqUvWyJv87UX+GjLIL6bv3uTT4WkOs43Gulk/hGJqrfGaBdKGjnxA+UTX+el0+D6HDEbj8/dD/pG/vXidnzGBZqu8DlgS3ItDGptYrQoVaimUKaxzVAQUViizvP9LK4nfUGEcZB+wrJ6Yj+wR1VecVbESC+tQSNKCnLOuFxURMNT+oHx2MU7vP0k1t0KSSCEXv06no4gR0Q5R20U4S0+pJgvrQoeLOKLbnriClyhFW+xXcBzRS/Ie5/R1/DdkPN6SkBRQa2a4e9T4EfgqyriOvIRGkY+G4q4mMSdD7v6T6KB11HLOS+O2JW0E82JfMOdaOCpq563wSTvM0VhxU5Mgw1pxKL9lZ/qhm/+Ybn4+1GjiRsHxdSZx89zEJQP+kMr/UyrNHmb73RS1QbEdJwQviDiBie7EwMopKSys5OnY+iiISB762Bmz++vudNP0XeuGk8cqfJi9a6dhAIsQKj/o97FSPcXdzFDo+dpg6FXk6r5XKPvL53sBmbR6FiOnTKEq1OJo5Kysi5jJ/kU+FWTEsIU8Bp7GPfdSFVbR/zWhI5fXfILLWff1hAsgaby7aZMj5gztVYCf0ybI2h+vHqT/2+/TmBMurPH2InD+EctK0+cG95PPjOUnj2exrVYeZu3OVKbMTRq+HwaU0TAKb6J8oDJqKe/Mu5JE158XR5Nhfna8F3aG4TuUmJPnJXQsSdxFoh0klDUactaLrsq8uDKSq6LQ6FrlsK0qK67BiNW7MqfW+KT8JTplvShV4WxsZgU/Ri4lGrpFJ6S6IUcmkBfIFIL1qfelM7OAWX3pJMvnvZPeSdsNsYjdsL0Ont/Vqoo95Yw8Ome1toLjIZ6JycXbPGWVS6BE07H7FwW1E92NwAJ9DP1KozKcylgo67bWuhcm8pDB4NHldVtuswwWXKaDS1ivr9HThdNNw8t3NTkuglkGHNY0HF+uQSrPvyUMblB72qO3+XDA0bi9wh0LyA7TbhfRrDjuqGt+ggz+oNXjK3fDw/yCUJKLPNKW0+Tt2ZSBthB7n6wme7DIi4Kq8MW9s04TG72bTLlq28t5aSXbOPzAYcQPia6Np4/NIK6tQaOZ17H3Q8Lkv38AjxK78A==
+sidebar_class_name: "post api-method"
+info_path: docs/api/siad/api-del-sistema-de-asignacion-de-especialistas-siad
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Reasigna una diligencia a un nuevo especialista."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/asignaciones/{asignacionId}/reasignar"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reasigna una diligencia a un nuevo especialista.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"asignacionId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"asignacionActualId":{"type":"integer","format":"int64"},"nuevoEspecialistaId":{"type":"integer","format":"int64"},"supervisorId":{"type":"string"},"motivo":{"type":"string"}},"required":["asignacionActualId","nuevoEspecialistaId","supervisorId","motivo"],"title":"ReasignacionRequest"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Reasignación realizada con éxito.","content":{"application/json":{"schema":{"type":"object","properties":{"asignacionId":{"type":"integer","format":"int64","readOnly":true},"diligenciaId":{"type":"integer","format":"int64"},"especialistaId":{"type":"integer","format":"int64"},"supervisorId":{"type":"string"},"fechaAsignacion":{"type":"string","format":"date-time"},"tipoAsignacion":{"type":"string","enum":["MANUAL","AUTOMATICA"]},"motivoReasignacion":{"type":"string","nullable":true},"estadoAsignacion":{"type":"string","enum":["ACTIVA","PREVIA","ANULADA"]}},"title":"Asignacion"}}}},"400":{"description":"Solicitud incorrecta o inválida.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}},"404":{"description":"El recurso solicitado no fue encontrado.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}},"500":{"description":"Error interno del servidor.","content":{"application/json":{"schema":{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time","description":"Fecha y hora del error."},"status":{"type":"integer","description":"Código de estado HTTP."},"error":{"type":"string","description":"Descripción corta del error (ej. \"Bad Request\")."},"message":{"type":"string","description":"Mensaje detallado del error."},"path":{"type":"string","description":"Ruta de la API que generó el error."}},"title":"ErrorResponse"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      
