@@ -19,6 +19,7 @@ Una *declaración* es el documento presentado por un declarante que contiene la 
 - Asignación automática o manual de especialistas a diligencias.
 - Reasignación manual de especialistas a diligencias
 - Generación de trazabilidad para fines de auditoría.
+- Notificación a supervidor y funcionario aduanero.
 
 
 ## Diagrama contexto general del sistema
@@ -52,3 +53,6 @@ allocationSystem--Envia correo usando -->emailSystem
 
 class A1,A3,A4,B3,B4, borderless
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNTczNDQ0MDUwXX0=
+-->
