@@ -5,7 +5,7 @@ sidebar_label: "Criterios de Aceptación"
 
 # Especificación de Criterios de Aceptación para Requisitos Funcionales (SIAD)
 
-A continuación, se detallan los criterios de aceptación para cada Requisito Funcional (RF) del Sistema de Asignación de Especialistas.
+A continuación, se detallan los criterios de aceptación para cada Requisito Funcional (RF) del Sistema de Asignación de Especialistas y Funcionarios y  Documentadores
 
 ---
 
