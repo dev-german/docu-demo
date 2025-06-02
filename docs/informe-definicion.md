@@ -15,4 +15,4 @@ sidebar_label: "Informe de definición"
 | **Nombre del Subsistema**       | Gestión de Declaraciones de Importación                                     |
 | **Código del Módulo**           | SIAD-DCL-ASG                                                                 |
 | **Nombre del Módulo**           | Módulo de Asignación de Especialistas                                       |
-| **Nombre del Supervisor de Desarrollo** | Sandra Aranda Zapata Zapata Zapata                                      |
+| **Nombre del Supervisor de Desarrollo** | Sandra Aranda Zapata                                       |
