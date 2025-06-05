@@ -1,0 +1,234 @@
+/* src/components/FloatingChat/styles.module.css */
+
+/* Estilos para el botón flotante (sin cambios respecto a la versión anterior) */
+.floatingButton {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--ifm-color-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000; 
+    transition: transform 0.2s ease-in-out, opacity 0.3s;
+    opacity: 1;
+  }
+  
+  .floatingButton:hover {
+    transform: scale(1.1);
+  }
+  
+  .floatingButton.hidden {
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+  }
+  
+  /* Estilos para la ventana del chat (sin cambios respecto a la versión anterior)*/
+  .chatWindow {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 370px; 
+    max-width: 90vw;
+    height: 550px; 
+    max-height: 80vh;
+    background-color: var(--ifm-background-surface-color);
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    z-index: 1001; 
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  /* --- MODIFICACIONES Y NUEVOS ESTILOS AQUÍ --- */
+  .chatHeader {
+    background-color: var(--ifm-color-primary-dark); /* O el color que tenías, ej: #8B0000 para un rojo oscuro como el de la imagen "Sofi" */
+    color: white;
+    padding: 10px 15px; /* Ajusta el padding si es necesario */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 11px; 
+    border-top-right-radius: 11px;
+  }
+  
+  .headerContent {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el avatar y el título */
+  }
+  
+  .chatAvatar {
+    width: 56px; /* Tamaño del avatar */
+    height: 56px;
+    border-radius: 50%; /* Para hacerlo circular */
+    object-fit: cover; /* Para que la imagen se ajuste bien */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Borde opcional */
+  }
+  
+  .chatTitle {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  /* --- FIN DE MODIFICACIONES Y NUEVOS ESTILOS --- */
+  
+  .closeButton {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .closeButton svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .chatMessages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: var(--ifm-background-color); 
+  }
+  
+  .message {
+    margin-bottom: 12px;
+    padding: 10px 14px;
+    border-radius: 18px;
+    line-height: 1.5;
+    max-width: 85%; 
+    word-wrap: break-word; 
+  }
+  
+  .message.user {
+    background-color: var(--ifm-color-primary);
+    color: white;
+    margin-left: auto; 
+    border-bottom-right-radius: 6px; 
+  }
+  
+  .message.ai {
+    background-color: var(--ifm-color-emphasis-200);
+    color: var(--ifm-font-color-base);
+    margin-right: auto; 
+    border-bottom-left-radius: 6px; 
+  }
+  
+  .messageText {
+    margin: 0;
+  }
+  
+  .message.errorMessage .messageText {
+    color: var(--ifm-color-danger-dark);
+  }
+  .message.errorMessage {
+    background-color: var(--ifm-color-danger-contrast-background);
+    border: 1px solid var(--ifm-color-danger-light);
+  }
+  
+  .sourcesContainer {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    border-top: 1px solid var(--ifm-color-emphasis-300);
+    padding-top: 6px;
+  }
+  .sourcesContainer strong {
+    display: block;
+    margin-bottom: 4px;
+  }
+  .sourcesContainer ul {
+    list-style: disc;
+    padding-left: 18px;
+    margin: 0;
+  }
+  .sourcesContainer li a {
+    color: var(--ifm-link-color);
+    text-decoration: underline;
+  }
+  
+  .chatInputForm {
+    display: flex;
+    padding: 12px;
+    border-top: 1px solid var(--ifm-color-emphasis-300);
+    background-color: var(--ifm-background-surface-color);
+  }
+  
+  .chatInput {
+    flex-grow: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--ifm-color-emphasis-500);
+    border-radius: 20px; 
+    margin-right: 10px;
+    font-size: 0.95rem;
+  }
+  .chatInput:focus {
+    outline: none;
+    border-color: var(--ifm-color-primary);
+    box-shadow: 0 0 0 2px var(--ifm-color-primary-lightest);
+  }
+  
+  
+  .sendButton {
+    background-color: var(--ifm-color-primary);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px; 
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  
+  .sendButton:hover {
+    background-color: var(--ifm-color-primary-dark);
+  }
+  
+  .sendButton:disabled {
+    background-color: var(--ifm-color-emphasis-500);
+    cursor: not-allowed;
+  }
+  
+  .errorTextDialog {
+    color: var(--ifm-color-danger);
+    padding: 0 15px 10px; 
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  @media (max-width: 480px) {
+    .chatWindow {
+      width: calc(100% - 30px); 
+      max-width: none;
+      height: calc(100% - 30px); 
+      max-height: none;
+      bottom: 15px;
+      right: 15px;
+      border-radius: 10px;
+    }
+    .floatingButton {
+      width: 50px;
+      height: 50px;
+      bottom: 15px;
+      right: 15px;
+    }
+    .floatingButton svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
